@@ -6,19 +6,19 @@ import React, { useState } from "react";
 const images = [
   {
     id: 1,
-    url: "https://images.pexels.com/photos/1176618/pexels-photo-1176618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "/slippers_fendl.jpg",
   },
   {
     id: 2,
-    url: "https://images.pexels.com/photos/297933/pexels-photo-297933.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "/slippers_grey01.jpg",
   },
   {
     id: 3,
-    url: "https://images.pexels.com/photos/1937336/pexels-photo-1937336.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "/slippers_silver.jpg",
   },
   {
     id: 4,
-    url: "https://images.pexels.com/photos/250288/pexels-photo-250288.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "/slippers_beige01.jpg",
   },
 ];
 
