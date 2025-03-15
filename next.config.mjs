@@ -13,6 +13,12 @@ const nextConfig = {
         hostname: "images.pexels.com",
       },
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com",
+      },
+    ],
   },
 };
 
