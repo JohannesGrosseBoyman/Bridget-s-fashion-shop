@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import DOMPurify from "isomorphic-dompurify";
+import Pagination from "./Pagination";
 
-const PRODUCT_PER_PAGE = 20;
+const PRODUCT_PER_PAGE = 6;
 
 const ProductList = async ({
   categoryId,
@@ -28,7 +29,12 @@ const ProductList = async ({
     )
     .gt("priceData.price", searchParams?.min || 0)
     .lt("priceData.price", searchParams?.max || 999999)
-    .limit(limit || PRODUCT_PER_PAGE);
+    .limit(limit || PRODUCT_PER_PAGE)
+    .skip(
+      searchParams?.page
+        ? parseInt(searchParams.page) * (limit || PRODUCT_PER_PAGE)
+        : 0
+    );
   //.find();
 
   if (searchParams?.sort) {
@@ -43,7 +49,7 @@ const ProductList = async ({
   }
 
   const res = await productQuery.find();
-
+  //console.log(res);
   return (
     <div className="mt-12 flex gap-x-8 gap-y-16 justify-between flex-wrap">
       {res.items.map((product: products.Product) => (
@@ -95,6 +101,11 @@ const ProductList = async ({
           </button>
         </Link>
       ))}
+      <Pagination
+        currentPage={res.currentPage || 0}
+        hasPrev={res.hasPrev()}
+        hasNext={res.hasNext()}
+      />
     </div>
   );
 };
